@@ -33,6 +33,6 @@ class DashboardController extends Controller
         // $totalSiswaInformal = AnakSekolahInformal::count();
         // $totalstafpegawai = StafPegawai::count();
         // $totalSecretaries = Secretary::count();
-        return view('Admin.dashboard');
+        return view('Admin_Layouts.dashboard');
     }
 }

@@ -1,6 +1,7 @@
-@extends('Admin.main')
+@extends('Admin_Layouts.app')
 @section('title', 'Edit Data Hero')
 @section('content')
+
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <div class="content-header">
