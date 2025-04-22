@@ -13,15 +13,17 @@ return new class extends Migration
     {
         Schema::create('doctors', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->string('nip')->nullable();
-            $table->string('specialist')->nullable();
-            $table->string('license_number')->nullable();
-            $table->text('education')->nullable();
-            $table->text('experience')->nullable();
-            $table->text('bio')->nullable();
+            $table->string('nama');
+            $table->string('spesialisasi'); // Spesialisasi dokter
+            $table->string('email')->unique();
+            $table->string('no_telepon')->nullable();
+            $table->string('no_str')->unique(); // Nomor STR/SIP
+            $table->string('jenis_kelamin'); // Jenis kelamin
+            $table->date('tanggal_lahir'); // Tanggal lahir
+            $table->text('alamat')->nullable(); // Alamat dokter
+            $table->string('foto_profil')->nullable(); 
+            $table->enum('status', ['active', 'inactive'])->default('active'); // Status kerja
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
@@ -32,4 +34,4 @@ return new class extends Migration
     {
         Schema::dropIfExists('doctors');
     }
-}; 
+};

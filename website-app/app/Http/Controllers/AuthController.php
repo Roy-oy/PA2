@@ -31,8 +31,25 @@ class AuthController extends Controller
             'password' => ['required'],
         ]);
 
-        if (Auth::attempt($credentials)) {
+        $remember = $request->has('remember');
+
+        // Check if user exists and is active
+        $user = User::where('email', $request->email)->first();
+        
+        if ($user && !$user->is_active) {
+            return back()->withErrors([
+                'email' => 'Akun anda tidak aktif.',
+            ])->onlyInput('email');
+        }
+
+        if (Auth::attempt($credentials, $remember)) {
             $request->session()->regenerate();
+
+            // Update last login
+            $user->update([
+                'last_login_at' => now(),
+                'last_login_ip' => $request->ip()
+            ]);
 
             return redirect()->intended('dashboard');
         }
@@ -58,4 +75,4 @@ class AuthController extends Controller
         // Pastikan bahwa pengguna dialihkan ke halaman login setelah logout
         return redirect()->route('login')->with('message', 'Anda berhasil keluar dari sistem.');
     }
-} 
+}
