@@ -16,10 +16,10 @@ class Berita extends Model
     protected $fillable = [
         'judul',
         'isi_berita',
-        'kategori_berita_id',
         'tanggal_upload',
         'photo',
-        'total_visitors'
+        'total_visitors',
+        'kategori_berita_id'
     ];
 
     // Define date fields

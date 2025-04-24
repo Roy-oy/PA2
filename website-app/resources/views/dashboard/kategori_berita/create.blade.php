@@ -20,13 +20,10 @@
                         <label for="nama_kategori" class="block text-sm font-medium text-gray-700 mb-1">
                             Nama Kategori <span class="text-red-500">*</span>
                         </label>
-                        <select name="nama_kategori" id="nama_kategori" required
-                            class="pl-10 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 @error('nama_kategori') border-red-500 @enderror">
-                            <option value="">-- Pilih Kategori --</option>
-                            <option value="Penyakit dan Pengobatan" {{ old('nama_kategori') == 'Penyakit dan Pengobatan' ? 'selected' : '' }}>Penyakit dan Pengobatan</option>
-                            <option value="Gizi dan Kesehatan Keluarga" {{ old('nama_kategori') == 'Gizi dan Kesehatan Keluarga' ? 'selected' : '' }}>Gizi dan Kesehatan Keluarga</option>
-                            <option value="Pola Hidup Sehat" {{ old('nama_kategori') == 'Pola Hidup Sehat' ? 'selected' : '' }}>Pola Hidup Sehat</option>
-                        </select>
+                        <input type="text" name="nama_kategori" id="nama_kategori" 
+                            value="{{ old('nama_kategori') }}" required
+                            class="pl-10 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 @error('nama_kategori') border-red-500 @enderror"
+                            placeholder="Masukkan nama kategori">
                         @error('nama_kategori')
                             <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                         @enderror

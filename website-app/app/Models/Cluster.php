@@ -3,10 +3,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Sanctum\HasApiTokens;
 
 class Cluster extends Model
 {
-    use HasFactory;
+    use HasFactory, HasApiTokens;
 
     // Nama tabel yang digunakan
     protected $table = 'clusters';

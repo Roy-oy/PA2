@@ -39,7 +39,9 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/pasien/{pasien}', [PasienApiController::class, 'show']);
     Route::put('/pasien/{pasien}', [PasienApiController::class, 'update']);
     
-    // Doctor schedule routes
-    Route::get('/jadwal-dokter', [JadwalDokterApiController::class, 'index']);
-    Route::get('/jadwal-dokter/{schedule}', [JadwalDokterApiController::class, 'show']);
+
 });
+
+// Doctor schedule routes
+Route::get('/jadwal-dokter', [JadwalDokterApiController::class, 'index']);
+Route::get('/jadwal-dokter/{schedule}', [JadwalDokterApiController::class, 'show']);

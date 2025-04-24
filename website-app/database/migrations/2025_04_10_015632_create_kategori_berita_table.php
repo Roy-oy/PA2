@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('kategori_berita', function (Blueprint $table) {
             $table->id();
-            $table->enum('nama_kategori', ['Penyakit dan Pengobatan', 'Gizi dan Kesehatan Keluarga', 'Pola Hidup Sehat']);
+            $table->text('nama_kategori');
             $table->text('deskripsi')->nullable();
             $table->timestamps();
         });
