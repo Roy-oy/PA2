@@ -20,7 +20,7 @@
                     <div>
                         <label for="nama" class="block text-sm font-medium text-gray-700">Nama Klaster <span class="text-red-500">*</span></label>
                         <select name="nama" id="nama" 
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-500 focus:border-yellow-500 block w-full p-2.5 @error('nama') border-red-500 @enderror">
+                            class="gender-select pl-10 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 @error('nama') border-red-500 @enderror">
                             <option value="">-- Pilih Klaster --</option>
                             <option value="Klaster 1" {{ $cluster->nama == 'Klaster 1' ? 'selected' : '' }}>Klaster 1</option>
                             <option value="Klaster 2" {{ $cluster->nama == 'Klaster 2' ? 'selected' : '' }}>Klaster 2</option>
@@ -38,7 +38,7 @@
                     <div>
                         <label for="description" class="block text-sm font-medium text-gray-700">Deskripsi</label>
                         <textarea id="summernote" name="description" rows="3" 
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-500 focus:border-yellow-500 block w-full p-2.5 @error('description') border-red-500 @enderror" 
+                            class="pl-10 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 @error('description') border-red-500 @enderror"
                             placeholder="Masukkan deskripsi klaster">{{ old('description', $cluster->description) }}</textarea>
                         @error('description')
                             <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
@@ -60,11 +60,3 @@
     </div>
 </div>
 @endsection
-
-@push('scripts')
-<script>
-    $(document).ready(function() {
-        $('#summernote').summernote();
-    });
-  </script>
-@endpush

@@ -4,6 +4,7 @@ import 'package:mobile_puskesmas/components/bottom_navbar.dart';
 import 'package:mobile_puskesmas/screens/home_screen.dart';
 import 'package:mobile_puskesmas/screens/article_screen.dart';
 import 'package:mobile_puskesmas/screens/faq_screen.dart';
+import 'package:mobile_puskesmas/screens/jadwal_dokter_screen.dart';
 import 'package:mobile_puskesmas/screens/profile_screen.dart';
 
 class MainLayout extends StatefulWidget {
@@ -21,6 +22,7 @@ class _MainLayoutState extends State<MainLayout> {
     ArticleScreen(),
     FAQScreen(),
     ProfileScreen(),
+    JadwalDokterScreen(),
   ];
 
   void _onItemTapped(int index) {

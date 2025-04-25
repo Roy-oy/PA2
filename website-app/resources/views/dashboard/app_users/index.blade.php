@@ -2,7 +2,7 @@
 
 @section('title', 'Manajemen Pengguna Aplikasi')
 @section('page_title', 'Manajemen Pengguna Aplikasi')
-@section('page_subtitle', 'Kelola data pengguna aplikasi mobile')
+@section('page_subtitle', 'Mengelola data pengguna aplikasi mobile')
 
 @section('content')
 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">

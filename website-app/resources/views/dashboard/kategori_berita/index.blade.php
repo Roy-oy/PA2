@@ -2,7 +2,7 @@
 
 @section('title', 'Manajemen Kategori Berita')
 @section('page_title', 'Manajemen Kategori Berita')
-@section('page_subtitle', 'Kelola data kategori berita')
+@section('page_subtitle', 'Mengelola data kategori berita')
 
 @section('content')
 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">

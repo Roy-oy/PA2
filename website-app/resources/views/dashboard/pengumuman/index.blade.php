@@ -2,7 +2,7 @@
 
 @section('title', 'Manajemen Pengumuman')
 @section('page_title', 'Manajemen Pengumuman')
-@section('page_subtitle', 'Kelola data pengumuman puskesmas')
+@section('page_subtitle', 'Mengelola data pengumuman puskesmas')
 
 @section('content')
 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">

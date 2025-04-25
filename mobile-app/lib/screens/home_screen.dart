@@ -4,8 +4,6 @@ import 'package:carousel_slider/carousel_slider.dart';
 // import 'package:mobile_puskesmas/screens/patient_registration_screen.dart';
 import 'package:mobile_puskesmas/services/auth_service.dart';
 import 'package:mobile_puskesmas/screens/patient_form_screen.dart';
-import 'package:mobile_puskesmas/screens/feedback_1.dart';
-import 'package:mobile_puskesmas/screens/pengumuman.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -136,7 +134,10 @@ class _HomeScreenState extends State<HomeScreen> {
                               title: 'Jadwal Dokter',
                               color: const Color(0xFF06489F),
                               onTap: () {
-                                // Handle jadwal dokter tap
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => const JadwalDokterScreen()),
+                                );
                               },
                             ),
                             _buildMenuItem(

@@ -29,8 +29,9 @@ class KategoriBeritaController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nama_kategori' => 'required|in:Penyakit dan Pengobatan,Gizi dan Kesehatan Keluarga,Pola Hidup Sehat',
+            'nama_kategori' => 'required|string',
             'deskripsi' => 'required|string',
+            'kategori_berita_id' => 'required|exists:kategori_berita,id',
         ]);
 
         KategoriBerita::create($request->all());
@@ -54,8 +55,9 @@ class KategoriBeritaController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'nama_kategori' => 'required|in:Penyakit dan Pengobatan,Gizi dan Kesehatan Keluarga,Pola Hidup Sehat',
+            'nama_kategori' => 'required|string',
             'deskripsi' => 'required|string',
+            'kategori_berita_id' => 'required|exists:kategori_berita,id',
         ]);
 
         $kategori = KategoriBerita::findOrFail($id);

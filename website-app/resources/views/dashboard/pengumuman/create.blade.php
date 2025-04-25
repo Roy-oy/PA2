@@ -5,72 +5,77 @@
 @section('page_subtitle', 'Buat pengumuman baru')
 
 @section('content')
-<div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-    <div class="p-6">
-        <form action="{{ route('pengumuman.store') }}" method="POST" enctype="multipart/form-data">
-            @csrf
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- Basic Information -->
-                <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
-                    <h3 class="text-lg font-medium text-gray-900 mb-4">Informasi Pengumuman</h3>
-                    
+<div class="px-4 py-5">
+    <!-- Form Card -->
+    <div class="bg-white rounded-xl shadow-md overflow-hidden">
+        <div class="bg-gradient-to-r from-green-500 to-green-600 px-6 py-4">
+            <h2 class="text-lg font-semibold text-white">Formulir Tambah Pengumuman</h2>
+        </div>
+        <div class="p-6">
+            <form action="{{ route('pengumuman.store') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <div class="grid grid-cols-1 gap-6">
                     <!-- Judul -->
                     <div class="mb-4">
-                        <label for="judul" class="block text-sm font-medium text-gray-700 mb-1">Judul Pengumuman <span class="text-red-500">*</span></label>
+                        <label for="judul" class="block text-sm font-medium text-gray-700 mb-1">
+                            Judul Pengumuman <span class="text-red-500">*</span>
+                        </label>
                         <input type="text" name="judul" id="judul" value="{{ old('judul') }}" required
-                            class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md @error('judul') border-red-500 @enderror">
+                            class="pl-10 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 @error('judul') border-red-500 @enderror">
                         @error('judul')
-                            <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
+                            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                         @enderror
                     </div>
-                    
+
                     <!-- Isi Pengumuman -->
                     <div class="mb-4">
-                        <label for="isi_pengumuman" class="block text-sm font-medium text-gray-700 mb-1">Isi Pengumuman <span class="text-red-500">*</span></label>
+                        <label for="isi_pengumuman" class="block text-sm font-medium text-gray-700 mb-1">
+                            Isi Pengumuman <span class="text-red-500">*</span>
+                        </label>
                         <textarea name="isi_pengumuman" id="isi_pengumuman" rows="5" required
-                            class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md @error('isi_pengumuman') border-red-500 @enderror">{{ old('isi_pengumuman') }}</textarea>
+                            class="pl-10 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 @error('isi_pengumuman') border-red-500 @enderror">{{ old('isi_pengumuman') }}</textarea>
                         @error('isi_pengumuman')
-                            <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
+                            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                         @enderror
                     </div>
-                </div>
-                
-                <!-- Additional Information -->
-                <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
-                    <h3 class="text-lg font-medium text-gray-900 mb-4">Informasi Tambahan</h3>
-                    
+
                     <!-- Tanggal Upload -->
                     <div class="mb-4">
-                        <label for="tanggal_upload" class="block text-sm font-medium text-gray-700 mb-1">Tanggal Upload <span class="text-red-500">*</span></label>
+                        <label for="tanggal_upload" class="block text-sm font-medium text-gray-700 mb-1">
+                            Tanggal Upload <span class="text-red-500">*</span>
+                        </label>
                         <input type="date" name="tanggal_upload" id="tanggal_upload" value="{{ old('tanggal_upload', date('Y-m-d')) }}" required
-                            class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md @error('tanggal_upload') border-red-500 @enderror">
+                            class="pl-10 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 @error('tanggal_upload') border-red-500 @enderror">
                         @error('tanggal_upload')
-                            <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
+                            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                         @enderror
                     </div>
-                    
+
                     <!-- File Surat -->
                     <div class="mb-4">
-                        <label for="file_surat" class="block text-sm font-medium text-gray-700 mb-1">File Surat</label>
-                        <input type="file" name="file_surat" id="file_surat" 
-                            class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md @error('file_surat') border-red-500 @enderror">
-                        @error('file_surat')
-                            <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
-                        @enderror
+                        <label for="file_surat" class="block text-sm font-medium text-gray-700 mb-1">
+                            File Surat
+                        </label>
+                        <input type="file" name="file_surat" id="file_surat"
+                            class="pl-10 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 @error('file_surat') border-red-500 @enderror">
                         <p class="mt-1 text-xs text-gray-500">Format yang diperbolehkan: PDF, DOC, DOCX. Maksimal 2MB</p>
+                        @error('file_surat')
+                            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                        @enderror
+                    </div>
+
+                    <!-- Form Actions -->
+                    <div class="flex justify-end items-center space-x-3 mt-8 pt-5 border-t border-gray-200">
+                        <a href="{{ route('pengumuman.index') }}" class="inline-flex items-center px-4 py-2.5 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200">
+                            <i class="fas fa-times mr-2"></i> Batal
+                        </a>
+                        <button type="submit" class="inline-flex items-center px-5 py-2.5 bg-green-600 text-white font-medium rounded-lg hover:bg-green-700">
+                            <i class="fas fa-save mr-2"></i> Simpan Data
+                        </button>
                     </div>
                 </div>
-            </div>
-            
-            <div class="mt-6 flex items-center justify-end space-x-3">
-                <a href="{{ route('pengumuman.index') }}" class="inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md shadow-sm text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                    Batal
-                </a>
-                <button type="submit" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                    Simpan
-                </button>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 </div>
 @endsection

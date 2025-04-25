@@ -13,13 +13,12 @@ return new class extends Migration
     {
         Schema::create('doctor_schedules', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('doctor_id')->constrained()->onDelete('cascade');
-            $table->string('day_of_week');
+            $table->foreignId('cluster_id')->constrained('clusters')->onDelete('cascade');
+            $table->foreignId('doctor_id')->constrained('doctors')->onDelete('cascade');
+            $table->tinyInteger('day_of_week');
             $table->time('start_time');
             $table->time('end_time');
-            $table->integer('max_patients')->default(20);
-            $table->boolean('is_active')->default(true);
-            $table->text('notes')->nullable();
+            $table->enum('status', ['active', 'inactive'])->default('active');
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('doctor_schedules');
+        Schema::dropIfExists('clusters');
     }
-}; 
+};
