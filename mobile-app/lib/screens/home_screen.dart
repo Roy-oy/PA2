@@ -4,6 +4,8 @@ import 'package:carousel_slider/carousel_slider.dart';
 // import 'package:mobile_puskesmas/screens/patient_registration_screen.dart';
 import 'package:mobile_puskesmas/services/auth_service.dart';
 import 'package:mobile_puskesmas/screens/patient_form_screen.dart';
+import 'package:mobile_puskesmas/screens/feedback_1.dart';
+import 'package:mobile_puskesmas/screens/pengumuman.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -142,15 +144,18 @@ class _HomeScreenState extends State<HomeScreen> {
                               title: 'Feedback',
                               color: const Color(0xFF06489F),
                               onTap: () {
-                                // Handle feedback tap
+                                // Pastikan untuk mengirimkan context yang valid
+                                _rujukan(context);
                               },
                             ),
+                                
                             _buildMenuItem(
                               image: 'assets/images/pengumuman-logo.png',
                               title: 'Pengumuman',
                               color: const Color(0xFF06489F),
                               onTap: () {
                                 // Handle pengumuman tap
+                                _pengumuman(context);
                               },
                             ),
                           ],
@@ -875,6 +880,24 @@ Pengecualian Rujukan Berjenjang:
       MaterialPageRoute(builder: (context) => const PatientFormScreen()),
     );
   }
+
+  void _rujukan(BuildContext context) {
+    // Arahkan ke halaman Feedback_1
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const Feedback_1()),
+    );
+  }
+
+void _pengumuman(BuildContext context) {
+    // Arahkan ke halaman pengummuman
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const Pengumuman()),
+    );
+  }
+
+
 
   void _handleFaskesRujukan() {
     // Tampilkan toast "Coming Soon" yang sederhana
