@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:mobile_puskesmas/screens/feedback_1.dart';
+import 'package:mobile_puskesmas/screens/jadwal_dokter_screen.dart';
+import 'package:mobile_puskesmas/screens/pengumuman.dart';
 // import 'package:mobile_puskesmas/screens/patient_registration_screen.dart';
 import 'package:mobile_puskesmas/services/auth_service.dart';
 import 'package:mobile_puskesmas/screens/patient_form_screen.dart';
