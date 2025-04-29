@@ -12,6 +12,8 @@ class Pasien extends Authenticatable
 {
     use HasFactory, SoftDeletes, HasApiTokens;
 
+    protected $table = 'pasiens';
+
     /**
      * The attributes that are mass assignable.
      *

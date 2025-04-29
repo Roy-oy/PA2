@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AntrianController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BeritaController;
@@ -39,6 +40,8 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('berita', BeritaController::class);
 
     Route::resource('kategori_berita', KategoriBeritaController::class);
+
+    Route::resource('antrian', AntrianController::class);
 
     // App Users Management
     Route::get('/app-users', [App\Http\Controllers\AppUserController::class, 'index'])->name('app-users.index');
