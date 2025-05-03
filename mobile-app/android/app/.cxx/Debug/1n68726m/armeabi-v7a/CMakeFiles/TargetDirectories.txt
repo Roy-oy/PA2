@@ -1,0 +1,2 @@
+D:/puskesmas-tadika-mesra/mobile-app/android/app/.cxx/Debug/1n68726m/armeabi-v7a/CMakeFiles/edit_cache.dir
+D:/puskesmas-tadika-mesra/mobile-app/android/app/.cxx/Debug/1n68726m/armeabi-v7a/CMakeFiles/rebuild_cache.dir

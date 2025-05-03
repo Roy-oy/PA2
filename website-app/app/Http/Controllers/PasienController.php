@@ -31,7 +31,7 @@ class PasienController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'no_rm' => 'required|string|unique:pasiens,no_rm',
+            // Hapus validasi no_rm karena akan digenerate otomatis
             'nama' => 'required|string|max:255',
             'jenis_kelamin' => 'required|in:Laki-laki,Perempuan',
             'tanggal_lahir' => 'required|date',
@@ -43,6 +43,7 @@ class PasienController extends Controller
             'golongan_darah' => 'nullable|in:A,B,AB,O,Tidak Diketahui',
             'riwayat_alergi' => 'nullable|string',
             'riwayat_penyakit' => 'nullable|string',
+            'keluhan_sakit' => 'required|string', // Add this line
         ]);
 
         if ($validator->fails()) {
@@ -79,7 +80,7 @@ class PasienController extends Controller
     public function update(Request $request, Pasien $pasien)
     {
         $validator = Validator::make($request->all(), [
-            'no_rm' => 'required|string|unique:pasiens,no_rm,' . $pasien->id,
+            // Hapus validasi no_rm karena tidak bisa diupdate
             'nama' => 'required|string|max:255',
             'jenis_kelamin' => 'required|in:Laki-laki,Perempuan',
             'tanggal_lahir' => 'required|date',
@@ -91,6 +92,7 @@ class PasienController extends Controller
             'golongan_darah' => 'nullable|in:A,B,AB,O,Tidak Diketahui',
             'riwayat_alergi' => 'nullable|string',
             'riwayat_penyakit' => 'nullable|string',
+            'keluhan_sakit' => 'required|string', 
         ]);
 
         if ($validator->fails()) {
@@ -99,7 +101,9 @@ class PasienController extends Controller
                 ->withInput();
         }
 
-        $pasien->update($request->all());
+        // Remove no_rm from request to prevent updates
+        $input = $request->except('no_rm');
+        $pasien->update($input);
 
         return redirect()->route('pasien.index')
             ->with('success', 'Data pasien berhasil diperbarui.');
@@ -115,4 +119,4 @@ class PasienController extends Controller
         return redirect()->route('pasien.index')
             ->with('success', 'Data pasien berhasil dihapus.');
     }
-} 
+}

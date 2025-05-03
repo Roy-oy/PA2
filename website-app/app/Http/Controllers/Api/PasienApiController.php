@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Pasien;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class PasienApiController extends Controller
 {
@@ -30,6 +31,13 @@ class PasienApiController extends Controller
             'success' => true,
             'message' => 'Detail Pasien',
             'data' => $pasien
+        ]);
+    }
+
+    public function store(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'keluhan_sakit' => 'required|string',
         ]);
     }
 }

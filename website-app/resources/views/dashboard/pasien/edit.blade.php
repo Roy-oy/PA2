@@ -63,19 +63,17 @@
                             <!-- No RM -->
                             <div>
                                 <label for="no_rm" class="block text-sm font-medium text-gray-700 mb-1">
-                                    No. Rekam Medis <span class="text-red-500">*</span>
+                                    No. Rekam Medis
                                 </label>
                                 <div class="relative">
                                     <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                         <i class="fas fa-id-card text-gray-400"></i>
                                     </div>
-                                    <input type="text" id="no_rm" name="no_rm" value="{{ old('no_rm', $pasien->no_rm) }}" 
-                                        class="pl-10 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-amber-500 focus:border-amber-500 block w-full p-2.5 @error('no_rm') border-red-500 @enderror" 
-                                        placeholder="Masukkan nomor RM" required>
+                                    <input type="text" id="no_rm" value="{{ $pasien->no_rm }}" 
+                                        class="pl-10 bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5" 
+                                        readonly>
                                 </div>
-                                @error('no_rm')
-                                    <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
-                                @enderror
+                                <p class="mt-1 text-xs text-gray-500">Nomor RM tidak dapat diubah</p>
                             </div>
                             
                             <!-- Nama -->
@@ -293,6 +291,24 @@
                                     <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                                 @enderror
                             </div>
+
+                            <!-- Keluhan Sakit -->
+                            <div class="md:col-span-2">
+                                <label for="keluhan_sakit" class="block text-sm font-medium text-gray-700 mb-1">
+                                    Keluhan Sakit <span class="text-red-500">*</span>
+                                </label>
+                                <div class="relative">
+                                    <div class="absolute top-3 left-3 flex items-start pointer-events-none">
+                                        <i class="fas fa-procedures text-gray-400"></i>
+                                    </div>
+                                    <textarea id="keluhan_sakit" name="keluhan_sakit" rows="3" 
+                                        class="pl-10 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-amber-500 focus:border-amber-500 block w-full p-2.5 @error('keluhan_sakit') border-red-500 @enderror" 
+                                        placeholder="Deskripsikan keluhan yang dialami" required>{{ old('keluhan_sakit', $pasien->keluhan_sakit) }}</textarea>
+                                </div>
+                                @error('keluhan_sakit')
+                                    <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                                @enderror
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -312,4 +328,4 @@
         </div>
     </div>
 </div>
-@endsection 
+@endsection
