@@ -200,8 +200,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   const SizedBox(height: 20),
                   _buildPersonalDataSection(context),
                   const SizedBox(height: 20),
-                  _buildMedicalDataSection(context),
-                  const SizedBox(height: 20),
+                  // _buildMedicalDataSection(context),
+                  // const SizedBox(height: 20),
                   _buildHealthFacilitiesSection(context),
                   const SizedBox(height: 20),
                   _buildButtonsSection(context),
@@ -413,59 +413,59 @@ class _ProfileScreenState extends State<ProfileScreen> {
     );
   }
 
-  Widget _buildMedicalDataSection(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(10),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.1),
-            spreadRadius: 1,
-            blurRadius: 4,
-            offset: const Offset(0, 1),
-          ),
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Text(
-            'Data Kesehatan',
-            style: TextStyle(
-              fontFamily: 'KohSantepheap',
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
-              color: Color(0xFF06489F),
-            ),
-          ),
-          const SizedBox(height: 15),
-          _buildDataItem('Golongan Darah',
-              _user?.patientData?.golonganDarah ?? 'Belum diisi'),
-          _buildDataItem('Rhesus', _user?.patientData?.rhesus ?? 'Belum diisi'),
-          _buildDataItem(
-              'Tinggi Badan',
-              _user?.patientData?.tinggiBadan != null
-                  ? '${_user?.patientData?.tinggiBadan} cm'
-                  : 'Belum diisi'),
-          _buildDataItem(
-              'Berat Badan',
-              _user?.patientData?.beratBadan != null
-                  ? '${_user?.patientData?.beratBadan} kg'
-                  : 'Belum diisi'),
-          _buildDataItem('IMT', _user?.patientData?.imt ?? 'Belum diisi'),
-          _buildDataItem('Tekanan Darah',
-              _user?.patientData?.tekananDarah ?? 'Belum diisi'),
-          _buildDataItem('Disabilitas', 'Tidak Ada'),
-          _buildDataItem('Riwayat Alergi',
-              _user?.patientData?.riwayatAlergi ?? 'Tidak Ada'),
-          _buildDataItem('Riwayat Penyakit',
-              _user?.patientData?.riwayatPenyakit ?? 'Tidak Ada'),
-        ],
-      ),
-    );
-  }
+  // Widget _buildMedicalDataSection(BuildContext context) {
+  //   return Container(
+  //     padding: const EdgeInsets.all(16),
+  //     decoration: BoxDecoration(
+  //       color: Colors.white,
+  //       borderRadius: BorderRadius.circular(10),
+  //       boxShadow: [
+  //         BoxShadow(
+  //           color: Colors.grey.withOpacity(0.1),
+  //           spreadRadius: 1,
+  //           blurRadius: 4,
+  //           offset: const Offset(0, 1),
+  //         ),
+  //       ],
+  //     ),
+  //     child: Column(
+  //       crossAxisAlignment: CrossAxisAlignment.start,
+  //       children: [
+  //         const Text(
+  //           'Data Kesehatan',
+  //           style: TextStyle(
+  //             fontFamily: 'KohSantepheap',
+  //             fontSize: 16,
+  //             fontWeight: FontWeight.bold,
+  //             color: Color(0xFF06489F),
+  //           ),
+  //         ),
+  //         const SizedBox(height: 15),
+  //         _buildDataItem('Golongan Darah',
+  //             _user?.patientData?.golonganDarah ?? 'Belum diisi'),
+  //         _buildDataItem('Rhesus', _user?.patientData?.rhesus ?? 'Belum diisi'),
+  //         _buildDataItem(
+  //             'Tinggi Badan',
+  //             _user?.patientData?.tinggiBadan != null
+  //                 ? '${_user?.patientData?.tinggiBadan} cm'
+  //                 : 'Belum diisi'),
+  //         _buildDataItem(
+  //             'Berat Badan',
+  //             _user?.patientData?.beratBadan != null
+  //                 ? '${_user?.patientData?.beratBadan} kg'
+  //                 : 'Belum diisi'),
+  //         _buildDataItem('IMT', _user?.patientData?.imt ?? 'Belum diisi'),
+  //         _buildDataItem('Tekanan Darah',
+  //             _user?.patientData?.tekananDarah ?? 'Belum diisi'),
+  //         _buildDataItem('Disabilitas', 'Tidak Ada'),
+  //         _buildDataItem('Riwayat Alergi',
+  //             _user?.patientData?.riwayatAlergi ?? 'Tidak Ada'),
+  //         _buildDataItem('Riwayat Penyakit',
+  //             _user?.patientData?.riwayatPenyakit ?? 'Tidak Ada'),
+  //       ],
+  //     ),
+  //   );
+  // }
 
   Widget _buildHealthFacilitiesSection(BuildContext context) {
     return Container(
